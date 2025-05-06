@@ -1,0 +1,110 @@
+/*
+Prototype css, will be rewritten at some point
+*/
+
+.grid-inventory-window {
+  background-color: #1e1e1e; 
+}
+
+.grid-inventory-window .grid-inventory-content {
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+.grid-inventory-window .inventory-grid-fixed {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-fixed-columns, 10), 50px); 
+  grid-auto-rows: 50px;
+  gap: 1px; 
+  margin: auto;
+  width: fit-content;
+}
+
+.grid-inventory-window .inventory-item-cell {
+  position: relative;
+  border: 1px solid #383838;
+  border-radius: 2px;
+  width: 50px;
+  height: 50px;
+  background-color: #2d2d2d;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  box-shadow: none;
+}
+
+.grid-inventory-window .inventory-item-cell.occupied-slot {}
+
+.grid-inventory-window .inventory-item-cell.empty-slot {
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid #303030;
+}
+
+.grid-inventory-window .inventory-item-cell:hover {
+  border-color: #555555;
+}
+.grid-inventory-window .inventory-item-cell.occupied-slot:hover {
+  border-color: #a0a0a0;
+  background-color: #3f3f3f;
+}
+.grid-inventory-window .inventory-item-cell.empty-slot:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+  border-color: #484848;
+}
+
+.grid-inventory-window .inventory-item-cell.occupied-slot .item-image {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  border: none;
+  filter: brightness(0.95) contrast(1.05);
+}
+.grid-inventory-window .inventory-item-cell.occupied-slot .item-quantity {
+  position: absolute;
+  bottom: 0px;
+  right: 2px;
+  background-color: rgba(10, 10, 10, 0.85);
+  color: #cccccc;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 0px 3px;
+  border-radius: 2px;
+  line-height: 1.3;
+  pointer-events: none;
+  z-index: 3;
+}
+.grid-inventory-window .inventory-item-cell.occupied-slot .equipped-icon,
+.grid-inventory-window .inventory-item-cell.occupied-slot .attuned-icon {
+  position: absolute;
+  top: 1px;
+  color: #bbbbbb;
+  background-color: rgba(10, 10, 10, 0.8);
+  padding: 1px;
+  border-radius: 50%;
+  font-size: 7px;
+  pointer-events: none;
+  z-index: 3;
+  border: 1px solid rgba(50,50,50,0.8);
+}
+.grid-inventory-window .inventory-item-cell.occupied-slot .equipped-icon { left: 1px; }
+.grid-inventory-window .inventory-item-cell.occupied-slot .attuned-icon { left: auto; right: 1px; color: #d4af37; }
+
+.grid-inventory-window .inventory-item-cell.occupied-slot .item-action-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+button.open-grid-inventory-button {
+  flex: 0 0 auto; 
+  line-height: 16px; 
+  margin-left: 5px;
+}

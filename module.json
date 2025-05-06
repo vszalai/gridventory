@@ -1,0 +1,20 @@
+{
+  "id": "gridventory",
+  "title": "Gridventory",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "description": "A grid based invetory system.",
+  "authors": [
+    {
+      "name": "Valter",
+      "url": "https://github.com/vszalai",
+      "flags": {}
+    }
+  ],
+  "scripts": [],
+  "esmodules": ["scripts/gridventory.js"],
+  "styles": ["styles/gridventory-css.css"]
+}

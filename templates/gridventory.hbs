@@ -1,0 +1,20 @@
+<div class="grid-inventory-content grid-inventory-window">
+
+    <div class="inventory-grid inventory-grid-fixed" style="--grid-fixed-columns: {{cols}};">
+
+        {{#times totalSlots}}
+        {{#if (filled @index locations)}}
+        {{assign "itemImg" (getImage items @index)}}
+        {{assign "itemTitle" (getTitle items @index)}}
+
+        <div class="inventory-item-cell occupied-slot" id="{{@index}}">
+            <img src="{{@root.itemImg}}" draggable="true">
+        </div>
+        {{else}}
+        <div class="inventory-item-cell empty-slot" id="{{@index}}">
+        </div>
+        {{/if}}
+        {{/times}}
+
+    </div>
+</div>
